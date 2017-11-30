@@ -4,7 +4,7 @@
         "icon": "http://nativebase.io/assets/img/front-page-icon.png",
         "loading": {
             "hideExponentText": false,
-            "backgroundImage": "./img/splashscreen.jpg"
+            "backgroundImage": "./img/splashscreen.png"
         },
         "orientation": "portrait",
         "primaryColor": "#cccccc",
