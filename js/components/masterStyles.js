@@ -4,10 +4,10 @@ const { StyleSheet } = React;
 
 export default {
     container: {
-        backgroundColor: "#ededed"
+        backgroundColor: "#fff"
     },
     listItem: {
-        backgroundColor: "#ededed",
+        backgroundColor: "#fff",
     },
     text: {
         alignSelf: "center",

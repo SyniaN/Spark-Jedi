@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { View } from 'react-native';
-import { NavigationActions } from 'react-navigation'
-
-
+import { View, Image, ImageBackground, Linking } from 'react-native';
+import { NavigationActions } from 'react-navigation';
+import styles from './detailStyles';
 
 import {
     Container,
@@ -19,7 +18,10 @@ import {
     H1,
     H2,
     H3,
-    Fab
+    Fab,
+    Card,
+    CardItem,
+    IconNB
 } from "native-base";
 
 export default class DetailView extends Component {
@@ -30,66 +32,72 @@ export default class DetailView extends Component {
             active: false
         }
     }
+    openFeedBack = () => {
+        Linking.openURL('https://docs.google.com/forms/d/e/1FAIpQLSdRSMx31ZQSH9VjxK0ihwnwLnRq7pB9Ndh_DoE8NRRRkKqzcQ/viewform')
+    }
+    openEmail = () => {
+        Linking.openURL(`mailto:?subject=Coaching Session Request&body=Hi, I think you are awesome. Can we grab coffee sometime? My treat :D`)
+    }
     render() {
         console.log("rendering DetailView");
         const backAction = NavigationActions.back();
         const { Profile } = this.props.navigation.state.params;
         return (
-            <Container>
+            <Container style={styles.container}>
                 <Header>
                     <Left>
-
-                        <Button transparent>
-                            <Icon name='arrow-back'
-                                onPress={() => this.props.navigation.dispatch(backAction)} />
+                        <Button transparent onPress={() => this.props.navigation.dispatch(backAction)}>
+                            <Icon name='arrow-back' />
                         </Button>
                     </Left>
-
-                    <Body>
+                    <Body >
                         <Title>
                             {Profile.Name}
                         </Title>
                     </Body>
                     <Right />
                 </Header>
-
-                <Content >
-                    <View>
-                        <View>
-                            <Thumbnail large source={Profile.img} />
+                <Content>
+                    <View style={styles.topView}>
+                        <ImageBackground
+                            style={styles.topViewImg}
+                            source={require('../../img/colorfulBackground.jpg')}>
+                            <View style={styles.topViewText}>
+                                <View style={styles.circle}>
+                                    <Thumbnail large source={Profile.img} />
+                                </View>
+                                <H3>{Profile.Name}</H3>
+                                <Text>{Profile.Location}</Text>
+                            </View>
+                        </ImageBackground>
+                    </View>
+                    <View style={styles.details}>
+                        <View style={styles.section}>
+                            <H3 >Your Why?</H3>
+                            <Text note>{Profile.Why} </Text>
                         </View>
-                        <View style={{ flex: 3 }}>
-                            <H2>Your Why?</H2>
-                            <Text note> {Profile.Why} </Text>
-                            <H2>Interests</H2>
-                            <Text note>{Profile.Interests} </Text>
-                            <H2>Memorable Experience</H2>
-                            <Text note> {Profile.MemorableExp}</Text>
-                            <H2>Inspirational Quote</H2>
-                            <Text note> {Profile.Quote} </Text>
-                            <H2>Inspired By</H2>
-                            <Text note> {Profile.Inspiration} </Text>
-                            <H2>Languages</H2>
-                            <Text note> {Profile.Languages} </Text>
+                        <View style={styles.section}>
+                            <H3>Interests</H3>
+                            <Text note>{Profile.Int}</Text>
                         </View>
-                        <Fab
-                            active={this.state.active}
-                            direction="up"
-                            containerStyle={{}}
-                            style={{ backgroundColor: '#5067FF' }}
-                            position="bottomRight"
-                            onPress={() => this.setState({ active: !this.state.active })}>
-                            <Icon name="share" />
-                            <Button style={{ backgroundColor: '#34A34F' }}>
-                                <Icon name="logo-whatsapp" />
-                            </Button>
-                            <Button style={{ backgroundColor: '#3B5998' }}>
-                                <Icon name="logo-facebook" />
-                            </Button>
-                            <Button disabled style={{ backgroundColor: '#DD5144' }}>
-                                <Icon name="mail" />
-                            </Button>
-                        </Fab>
+                        <View style={styles.section}>
+                            <H3 >Memorable Experience</H3>
+                            <Text note>{Profile.MemorableExp}</Text>
+                        </View>
+                        <View style={styles.section}>
+                            <H3 >Inspirational Quote</H3>
+                            <Text note>{Profile.Quote}</Text>
+                        </View>
+                        <View style={styles.section}>
+                            <H3 >Inspired By</H3>
+                            <Text note>{Profile.Inspiration}</Text>
+                        </View>
+                        <View style={styles.section}>
+                            <H3 >Languages</H3>
+                            <Text note>{Profile.Languages}</Text>
+                        </View>
+                        <Button block info style={styles.button} onPress={this.openEmail}><Text>Contact Me</Text></Button>
+                        <Button block warning style={styles.button} onPress={this.openFeedBack}><Text>Give Feedback</Text></Button>
                     </View>
                 </Content >
             </Container >
