@@ -32,12 +32,14 @@ export default class DetailView extends Component {
             active: false
         }
     }
+
     openFeedBack = () => {
         Linking.openURL('https://docs.google.com/forms/d/e/1FAIpQLSdRSMx31ZQSH9VjxK0ihwnwLnRq7pB9Ndh_DoE8NRRRkKqzcQ/viewform')
     }
     openEmail = () => {
-        Linking.openURL(`mailto:?subject=Coaching Session Request&body=Hi, I think you are awesome. Can we grab coffee sometime? My treat :D`)
+        Linking.openURL(`mailto:test@spark.co.nz?subject=Coaching Session Request&body=Hi, I think you are awesome. Can we grab coffee sometime? My treat :D`)
     }
+
     render() {
         console.log("rendering DetailView");
         const backAction = NavigationActions.back();
