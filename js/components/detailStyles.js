@@ -26,7 +26,7 @@ export default {
         padding: 15
     },
     topView: {
-        backgroundColor: "red",
+        backgroundColor: "salmon",
         width: "100%",
         height: 200,
         marginBottom: 15,

@@ -1,9 +1,12 @@
 {
     "expo": {
+        "name": "Spark Jedi",
         "sdkVersion": "23.0.0",
+        "version": "0.1",
+        "slug": "spark-jedi-app",
         "icon": "http://nativebase.io/assets/img/front-page-icon.png",
         "loading": {
-            "hideExponentText": false,
+            "hideExponentText": true,
             "backgroundImage": "./img/splashscreen.png"
         },
         "orientation": "portrait",
@@ -17,6 +20,12 @@
         "androidStatusBar": {
             "barStyle": "light-content",
             "backgroundColor": "#334393"
+        },
+        "ios": {
+            "bundleIdentifier": "nz.co.spark"
+        },
+        "android": {
+            "package": "nz.co.spark"
         }
     }
 }
