@@ -2,7 +2,7 @@
     "expo": {
         "name": "Spark Jedi",
         "sdkVersion": "23.0.0",
-        "version": "0.1",
+        "version": "0.2",
         "slug": "spark-jedi-app",
         "icon": "http://nativebase.io/assets/img/front-page-icon.png",
         "loading": {
