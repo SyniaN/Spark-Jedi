@@ -5,13 +5,15 @@ import { View } from 'react-native';
 
 import MasterView from "./components/MasterView";
 import DetailView from "./components/DetailView";
+import SignInView from "./components/SignInView";
 
 const AppNavigator = StackNavigator(
     {
+        SignInView: { screen: SignInView },
         MasterView: { screen: MasterView },
         DetailView: { screen: DetailView }
     }, {
-        initialRouteName: "MasterView",
+        initialRouteName: "SignInView",
         headerMode: "none"
     }
 )
