@@ -34,14 +34,14 @@ export default class DetailView extends Component {
     }
 
     openFeedBack = () => {
-        Linking.openURL('https://docs.google.com/forms/d/e/1FAIpQLSdRSMx31ZQSH9VjxK0ihwnwLnRq7pB9Ndh_DoE8NRRRkKqzcQ/viewform')
+        Linking.openURL('https://forms.office.com/Pages/ResponsePage.aspx?id=xs6z9mKoQEqatADW4R5vD7nvsnAvhwJBg3p0U6T7EZVURVdYWEc0WUpJMlhBMzFKNzhDWDhJVk9RSS4u')
     }
     openEmail = () => {
-        Linking.openURL(`mailto:test@spark.co.nz?subject=Coaching Session Request&body=Hi, I think you are awesome. Can we grab coffee sometime? My treat :D`)
+        const { Profile } = this.props.navigation.state.params;
+        Linking.openURL(`mailto:` + Profile.Email + `?subject=Coaching Session Request&body=Hi, I think you are awesome. Can we grab coffee sometime? My treat :D`)
     }
 
     render() {
-        console.log("rendering DetailView");
         const backAction = NavigationActions.back();
         const { Profile } = this.props.navigation.state.params;
         return (

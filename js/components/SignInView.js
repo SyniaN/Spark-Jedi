@@ -40,7 +40,6 @@ class SignInView extends Component {
 
 
     updatePasscode = (text) => {
-        console.log(text);
         this.setState({ passcodeInput: text });
     }
 

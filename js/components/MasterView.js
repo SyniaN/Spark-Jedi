@@ -35,17 +35,14 @@ export default class MasterView extends Component {
     }
 
     showSearch = () => {
-        console.log('showing search');
         this.setState({ showSearch: true });
     }
 
     hideSearch = () => {
-        console.log('hiding search');
         this.setState({ showSearch: false, searchTerm: "" });
     }
 
     inputSearchTerm = (text) => {
-        console.log(text);
         this.setState({ searchTerm: text })
     }
 
@@ -54,7 +51,6 @@ export default class MasterView extends Component {
         const filteredProfiles = Profiles.filter(p => {
             return this.state.searchTerm === "" ? p : p.Name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         });
-        console.log("rendering Master view");
         return (
             <Container style={styles.container}>
                 <Header searchBar rounded >
